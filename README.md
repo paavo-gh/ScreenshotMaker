@@ -2,11 +2,11 @@
 
 Tool for generating app store screenshots with localized text and image overlays.
 
-All screenshots are defined in `content.js`. Each screenshot takes an HTML template, and a list of images and localizable pieces of text to be injected into elements with matching `class` names in the HTML template.
+All screenshots are defined in `content.json`. Each screenshot takes an HTML template, and a list of images and localizable pieces of text to be injected into elements with matching `class` names in the HTML template.
 
-Example:
+## Example
 
-In content.json
+In content.json:
 ```
 {
     "resolutions":[
@@ -27,7 +27,7 @@ In content.json
 }
 ```
 
-localized.json
+localized.json:
 ```
 {
     "en": {

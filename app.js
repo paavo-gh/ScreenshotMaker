@@ -28,14 +28,22 @@ const content = require('./content.json');
 
             // Localize
             for (let textClass in screenshot.localized) {
-              Array.from(document.getElementsByClassName(textClass))
-                .forEach(el => el.textContent = localizedText[screenshot.localized[textClass]]);
+              for (let el of document.getElementsByClassName(textClass))
+                el.textContent = localizedText[screenshot.localized[textClass]];
             }
             
             // Set images
             for (let imageClass in screenshot.images) {
-              Array.from(document.getElementsByClassName(imageClass))
-                .forEach(el => el.style.backgroundImage = `url(${screenshot.images[imageClass]})`);
+              for (let el of document.getElementsByClassName(imageClass))
+                el.style.backgroundImage = `url(${screenshot.images[imageClass]})`;
+            }
+
+            // Set custom style attributes
+            for (let styleName in screenshot.style) {
+              for (let elementClass in screenshot.style[styleName]) {
+                for (let el of document.getElementsByClassName(elementClass))
+                  el.style[styleName] = screenshot.style[styleName][elementClass];
+              }
             }
           
           }, data.screenshots[index], languages[langCode]);

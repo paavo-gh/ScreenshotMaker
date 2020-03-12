@@ -48,6 +48,28 @@ Result when generating "screenshot_en_2048x2732.png"
 <div class="titleText">English Title</div>
 ```
 
+## Other
+
+Modify any CSS value in `content.json`
+```
+"screenshots":[
+    {
+        "style":{
+            "fill":{
+                "text1":"yellow"
+            },
+            "fontFamily":{
+                "text1":"Impact,sans-serif",
+                "text2":"Impact,sans-serif"
+            },
+            "backgroundSize":{
+                "overlay1":"cover"
+            }
+        },
+        ...
+    }
+```
+
 ## Install
 
 On top of Node.js, install Puppeteer: `npm i puppeteer`

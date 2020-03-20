@@ -3,61 +3,19 @@
 <head>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:900&display=swap" rel="stylesheet">
+    <link href="TemplateStyle.css" rel="stylesheet" type="text/css">
     <style>
-        body {
-            margin: 0; padding: 0;
-        }
         .aspect-ratio {
-            position: relative;
-            width: 100%;
-            padding-bottom: calc(4 / 3 * 100%);
+            padding-bottom: calc(4 / 3 * 100%); /* Force aspect ratio: 3/4 */
         }
         .background {
-            position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-            background: transparent url(Screenshot2_Tablet.png) center center no-repeat;
-            background-size: contain;
-            color: white;
-        }
-        .phone {
-            position: absolute; top: 20%; left: 0; right: 0; bottom: 5%;
-        }
-        .title-text {
-            position: absolute; top: 2%; left: 5%; right: 5%; bottom: 75%;
-            font: bold 8vw 'Montserrat', sans-serif;
-            background-color:hsl(283, 100%, 27%);
+            background-image: url(Screenshot2_Tablet.png);
         }
         .phoneframe {
-            position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-            background: transparent url(FrameTablet.png) center center no-repeat;
-            background-size: contain;
-            color: white;
+            background-image: url(FrameTablet.png);
         }
         .phonescreen {
-            position: absolute; top: 3%; left: 3%; right: 3%; bottom: 3%;
-            margin: auto;
-            background: transparent url(Screenshot1_Tablet.png) center center no-repeat;
-            background-size: contain;
-            color: white;
-        }
-        .text-container {
-            position: absolute; width: 100%;
-            font: bold 50px 'Montserrat', 'Noto Sans JP', sans-serif;
-        }
-        .text1 {
-            fill: hsl(46, 100%, 35%);
-            stroke: hsl(46, 100%, 35%);
-            stroke-width:2px;
-            stroke-linejoin: round;
-        }
-        .text3 {
-            fill: hsl(46, 100%, 35%);
-            stroke: hsl(283, 100%, 27%);
-            stroke-width:15px;
-            stroke-linejoin: round;
-            filter: url(#shadow);
-        }
-        .text2 {
-            fill: hsl(46, 100%, 50%);
+            background-image: url(Screenshot1_Tablet.png);
         }
     </style>
 </head>

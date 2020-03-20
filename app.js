@@ -18,7 +18,6 @@ function getFile(fileName)
   process.exit();
 }
 
-console.log(getFile('localized.json'));
 const languages = require(getFile('localized.json'));
 const content = require(getFile('content.json'));
 

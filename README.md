@@ -16,12 +16,12 @@ In content.json:
     ],
     "screenshots":[
         {
-            "template":"template1.html",
+            "template":"TemplateTablet.html",
             "images":{
-                "overlay1":"Screenshot1.png"
+                "phonescreen":"Screenshot1.png"
             },
             "localized":{
-                "titleText":"title1"
+                "line":"screenshot1_line"
             }
         },
         ...
@@ -33,21 +33,21 @@ localized.json:
 ```
 {
     "en": {
-        "title1": "English Title"
+        "screenshot1_line": "English Title"
     }
 }
 ```
 
 template.html:
 ```
-<div class="overlay1"></div>
-<div class="titleText">Placeholder Title</div>
+<div class="phonescreen"></div>
+<div class="line">Placeholder Title</div>
 ```
 
 Result when generating "screenshot_en_2048x2732.png"
 ```
-<div class="overlay1" style="background-image: url(Screenshot1.png)"></div>
-<div class="titleText">English Title</div>
+<div class="phonescreen" style="background-image: url(Screenshot1.png)"></div>
+<div class="line">English Title</div>
 ```
 
 ## Install
@@ -70,7 +70,7 @@ Modify any CSS value in `content.json`
                 "text2":"Impact,sans-serif"
             },
             "backgroundSize":{
-                "overlay1":"cover"
+                "phonescreen":"cover"
             }
         },
         ...

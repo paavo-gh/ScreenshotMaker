@@ -1,0 +1,49 @@
+body {
+    margin: 0; padding: 0;
+}
+.aspect-ratio {
+    position: relative;
+    width: 100%;
+}
+.background {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: transparent url(Screenshot2.png) center center no-repeat;
+    background-size: contain;
+    color: white;
+}
+.phone {
+    position: absolute; top: 20%; left: 0; right: 0; bottom: 5%;
+}
+.phoneframe {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: transparent url(FramePhone.png) center center no-repeat;
+    background-size: contain;
+    color: white;
+}
+.phonescreen {
+    position: absolute; top: 3%; left: 3%; right: 3%; bottom: 3%;
+    margin: auto;
+    background: transparent url(Screenshot1.png) center center no-repeat;
+    background-size: contain;
+    color: white;
+}
+.text-container {
+    position: absolute; width: 100%;
+    font: bold 50px 'Montserrat', 'Noto Sans JP', sans-serif;
+}
+.text1 {
+    fill: hsl(46, 100%, 35%);
+    stroke: hsl(46, 100%, 35%);
+    stroke-width:2px;
+    stroke-linejoin: round;
+}
+.text3 {
+    fill: hsl(46, 100%, 35%);
+    stroke: hsl(283, 100%, 27%);
+    stroke-width:15px;
+    stroke-linejoin: round;
+    filter: url(#shadow);
+}
+.text2 {
+    fill: hsl(46, 100%, 50%);
+}

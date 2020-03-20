@@ -1,0 +1,74 @@
+[
+    {
+       "resolutions":[
+          [
+             1242,
+             2688
+          ]
+       ],
+       "screenshots":[
+          {
+             "template":"TemplatePhone.html",
+             "images":{
+                "background":"Screenshot2.png",
+                "phonescreen":"Screenshot1.png"
+             },
+             "localized":{
+                "line1":"screenshot1_line1",
+                "line2":"screenshot1_line2",
+                "line": "screenshot1_line"
+             }
+          },
+          {
+            "template":"TemplatePhone.html",
+            "images":{
+               "background":"Screenshot2.png",
+               "phonescreen":"Screenshot3.png"
+            },
+            "localized":{
+               "line1":"screenshot2_line1",
+               "line2":"screenshot2_line2",
+               "line": "screenshot2_line"
+            }
+         }
+       ]
+    },
+    {
+      "resolutions":[
+         [
+            1536,
+            2048
+         ],
+         [
+            2048,
+            2732
+         ]
+      ],
+      "screenshots":[
+         {
+            "template":"TemplateTablet.html",
+            "images":{
+               "background":"Screenshot2_Tablet.png",
+               "phonescreen":"Screenshot1_Tablet.png"
+            },
+            "localized":{
+               "line1":"screenshot1_line1",
+               "line2":"screenshot1_line2",
+               "line": "screenshot1_line"
+            }
+         },
+         {
+           "template":"TemplateTablet.html",
+           "images":{
+              "background":"Screenshot2_Tablet.png",
+              "phonescreen":"Screenshot3_Tablet.png"
+           },
+           "localized":{
+              "line1":"screenshot2_line1",
+              "line2":"screenshot2_line2",
+              "line": "screenshot2_line"
+           }
+        }
+      ]
+   }
+]

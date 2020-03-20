@@ -1,8 +1,30 @@
 const puppeteer = require('puppeteer');
 const path = require('path');
+const fs = require('fs')
 
-const languages = require('./localized.json');
-const content = require('./content.json');
+var rootDir = process.argv[2];
+if (rootDir === undefined)
+{
+  console.log('Usage: node app.js directory-name');
+  process.exit();
+}
+
+function getFile(fileName)
+{
+  var filePath = path.resolve(rootDir, fileName);
+  if (fs.existsSync(filePath))
+    return filePath;
+  console.log('File does not exist: ' + filePath);
+  process.exit();
+}
+
+console.log(getFile('localized.json'));
+const languages = require(getFile('localized.json'));
+const content = require(getFile('content.json'));
+
+var saveDir = path.join(rootDir, 'Screenshots');
+if (!fs.existsSync(saveDir))
+  fs.mkdirSync(saveDir);
 
 (async () => {
   const browser = await puppeteer.launch();
@@ -18,7 +40,7 @@ const content = require('./content.json');
 
       // Screenshots
       for (let index in data.screenshots) {
-        await page.goto(`file://${path.join(__dirname, data.screenshots[index].template)}`);
+        await page.goto(`file://${getFile(data.screenshots[index].template)}`);
 
         // Languages
         for (let langCode in languages) {
@@ -49,7 +71,9 @@ const content = require('./content.json');
           }, data.screenshots[index], languages[langCode]);
 
           // Save screenshot
-          await page.screenshot({path: `screenshot_${langCode}_${resolution[0]}x${resolution[1]}_${parseInt(index)+1}.png`});
+          var fileName = path.join(saveDir, `screenshot_${langCode}_${resolution[0]}x${resolution[1]}_${parseInt(index)+1}.png`);
+          console.log('Saving ' + fileName);
+          await page.screenshot({path: fileName});
         }
       }
     }

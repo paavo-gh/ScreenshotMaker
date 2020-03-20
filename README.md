@@ -2,6 +2,8 @@
 
 Tool for generating app store screenshots with localized text and image overlays.
 
+![Image](/README_img.png)
+
 All screenshots are defined in `content.json`. Each screenshot takes an HTML template, and a list of images and localizable pieces of text to be injected into elements with matching `class` names in the HTML template.
 
 ## Example
@@ -48,6 +50,11 @@ Result when generating "screenshot_en_2048x2732.png"
 <div class="titleText">English Title</div>
 ```
 
+## Install
+
+On top of Node.js, install Puppeteer: `npm i puppeteer`
+To run: `node app.js ExampleFrame`
+
 ## Other
 
 Modify any CSS value in `content.json`
@@ -69,8 +76,3 @@ Modify any CSS value in `content.json`
         ...
     }
 ```
-
-## Install
-
-On top of Node.js, install Puppeteer: `npm i puppeteer`
-To run: `node app.js`

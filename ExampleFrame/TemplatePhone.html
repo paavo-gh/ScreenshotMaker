@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0; padding: 0;
+        }
+        .aspect-ratio {
+            position: relative;
+            width: 100%;
+            padding-bottom: calc(19.5 / 9 * 100%);
+        }
+        .background {
+            position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: transparent url(Screenshot2.png) center center no-repeat;
+            background-size: contain;
+            color: white;
+        }
+        .phone {
+            position: absolute; top: 20%; left: 0; right: 0; bottom: 5%;
+        }
+        .title-text {
+            position: absolute; top: 2%; left: 5%; right: 5%; bottom: 75%;
+            font: bold 8vw 'Montserrat', sans-serif;
+            background-color:hsl(283, 100%, 27%);
+        }
+        .phoneframe {
+            position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: transparent url(FramePhone.png) center center no-repeat;
+            background-size: contain;
+            color: white;
+        }
+        .phonescreen {
+            position: absolute; top: 3%; left: 3%; right: 3%; bottom: 3%;
+            margin: auto;
+            background: transparent url(Screenshot1.png) center center no-repeat;
+            background-size: contain;
+            color: white;
+        }
+        .text-container {
+            position: absolute; width: 100%;
+            font: bold 50px 'Montserrat', 'Noto Sans JP', sans-serif;
+        }
+        .text1 {
+            fill: hsl(46, 100%, 35%);
+            stroke: hsl(46, 100%, 35%);
+            stroke-width:2px;
+            stroke-linejoin: round;
+        }
+        .text3 {
+            fill: hsl(46, 100%, 35%);
+            stroke: hsl(283, 100%, 27%);
+            stroke-width:15px;
+            stroke-linejoin: round;
+            filter: url(#shadow);
+        }
+        .text2 {
+            fill: hsl(46, 100%, 50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="aspect-ratio">
+        <div class="background"></div>
+        <div class="phone">
+            <div class="phonescreen"></div>
+            <div class="phoneframe"></div>
+        </div>
+        <svg viewBox="-250 -250 500 500" class="text-container">
+            <filter id="shadow">
+                <feDropShadow dx="0" dy="0" stdDeviation="2" 
+                    flood-color="black"/>
+            </filter>
+            <g transform="translate(0 -120)">
+                <text class="text3 line" y="1" text-anchor="middle">English Title</text>
+                <text class="text1 line" y="0" text-anchor="middle">English Title</text>
+                <text class="text2 line" y="-1" text-anchor="middle">English Title</text>
+                <g transform="translate(0 -30)">
+                    <text class="text3 line1" y="1" text-anchor="middle">English</text>
+                    <text class="text1 line1" y="0" text-anchor="middle">English</text>
+                    <text class="text2 line1" y="-1" text-anchor="middle">English</text>
+                </g>
+                <g transform="translate(0 30)">
+                    <text class="text3 line2" y="1" text-anchor="middle">Title</text>
+                    <text class="text1 line2" y="0" text-anchor="middle">Title</text>
+                    <text class="text2 line2" y="-1" text-anchor="middle">Title</text>
+                </g>
+            </g>
+        </svg>
+    </div>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+    "en": {
+        "screenshot1_line": "One line",
+        "screenshot2_line1": "Two",
+        "screenshot2_line2": "Lines"
+    },
+    "fi": {
+        "screenshot1_line": "Yksi rivi",
+        "screenshot2_line1": "Kaksi",
+        "screenshot2_line2": "riviä"
+    },
+    "jp": {
+        "screenshot1_line": "日本語のタイトル",
+        "screenshot2_line1": "日本語の",
+        "screenshot2_line2": "タイトル"
+    }
+}

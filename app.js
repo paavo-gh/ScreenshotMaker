@@ -45,7 +45,7 @@ if (!fs.existsSync(saveDir))
         for (let langCode in languages) {
         
           // Change the template
-          await page.evaluate((screenshot, localizedText) => {
+          await page.evaluate((screenshot, localizedText, langCode) => {
 
             // Localize
             for (let textClass in screenshot.localized) {
@@ -56,7 +56,7 @@ if (!fs.existsSync(saveDir))
             // Set images
             for (let imageClass in screenshot.images) {
               for (let el of document.getElementsByClassName(imageClass))
-                el.style.backgroundImage = `url(${screenshot.images[imageClass]})`;
+                el.style.backgroundImage = `url(${screenshot.images[imageClass]})`.replace('{lang}', langCode);
             }
 
             // Set custom style attributes
@@ -67,7 +67,7 @@ if (!fs.existsSync(saveDir))
               }
             }
           
-          }, data.screenshots[index], languages[langCode]);
+          }, data.screenshots[index], languages[langCode], langCode);
 
           // Save screenshot
           var fileName = path.join(saveDir, `screenshot_${langCode}_${resolution[0]}x${resolution[1]}_${parseInt(index)+1}.png`);

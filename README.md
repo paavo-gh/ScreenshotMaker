@@ -55,7 +55,18 @@ Result when generating "screenshot_en_2048x2732.png"
 On top of Node.js, install Puppeteer: `npm i puppeteer`
 To run: `node app.js ExampleFrame`
 
-## Other
+## Other Features
+
+### Localized Images
+
+Use localized images with `{lang}`-tag which gets replaced by the language code you specify in `localized.json`
+```
+    "images":{
+        "phonescreen":"Screenshot1_{lang}.png"
+    },
+```
+
+### Customize any CSS
 
 Modify any CSS value in `content.json`
 ```

@@ -18,7 +18,7 @@ In content.json:
          ],
          "screenshots": [
             {
-               "template": "TemplatePhone.html",
+               "template": "Template.html",
                 "images":{
                     "phonescreen":"Screenshot1.png"
                 },
@@ -41,7 +41,7 @@ localized.json:
 }
 ```
 
-template.html:
+Template.html:
 ```
 <div class="phonescreen"></div>
 <div class="line">Placeholder Title</div>
@@ -93,7 +93,7 @@ With presets the first example could be written as follows:
          ],
          "screenshots": [
             {
-               "template": "TemplatePhone.html",
+               "template": "Template.html",
                "preset": "screenshot1"
             }
          ]

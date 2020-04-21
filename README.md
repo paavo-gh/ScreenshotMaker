@@ -11,21 +11,24 @@ All screenshots are defined in `content.json`. Each screenshot takes an HTML tem
 In content.json:
 ```
 {
-    "resolutions":[
-        [ 2048, 2732 ], ...
-    ],
-    "screenshots":[
-        {
-            "template":"TemplateTablet.html",
-            "images":{
-                "phonescreen":"Screenshot1.png"
-            },
-            "localized":{
-                "line":"screenshot1_line"
+   "content": [
+      {
+         "resolutions": [
+            [ 1242, 2688 ]
+         ],
+         "screenshots": [
+            {
+               "template": "TemplatePhone.html",
+                "images":{
+                    "phonescreen":"Screenshot1.png"
+                },
+               "localized": {
+                  "line1": "screenshot1_line"
+               }
             }
-        },
-        ...
-    ]
+         ]
+      }
+   ]
 }
 ```
 
@@ -44,7 +47,7 @@ template.html:
 <div class="line">Placeholder Title</div>
 ```
 
-Result when generating "screenshot_en_2048x2732.png"
+Result when generating "screenshot_en_1242x2688.png"
 ```
 <div class="phonescreen" style="background-image: url(Screenshot1.png)"></div>
 <div class="line">English Title</div>
@@ -61,26 +64,59 @@ To run: `node app.js ExampleFrame`
 
 Use localized images with `{lang}`-tag which gets replaced by the language code you specify in `localized.json`
 ```
-    "images":{
-        "phonescreen":"Screenshot1_{lang}.png"
+    "images": {
+       "phonescreen":"Screenshot1_{lang}.png"
     },
+```
+
+### Presets
+
+Presets allow defining attributes in one place and using them in multiple screenshots.
+With presets the first example could be written as follows:
+
+```
+{
+   "presets": {
+      "screenshot1": {
+         "images":{
+             "phonescreen":"Screenshot1.png"
+         },
+         "localized": {
+             "line1": "screenshot1_line"
+         }
+      }
+   },
+   "content": [
+      {
+         "resolutions": [
+            [ 1242, 2688 ]
+         ],
+         "screenshots": [
+            {
+               "template": "TemplatePhone.html",
+               "preset": "screenshot1"
+            }
+         ]
+      }
+   ]
+}
 ```
 
 ### Customize any CSS
 
 Modify any CSS value in `content.json`
 ```
-"screenshots":[
+"screenshots": [
     {
-        "style":{
-            "fill":{
+        "style": {
+            "fill": {
                 "text1":"yellow"
             },
-            "fontFamily":{
+            "fontFamily": {
                 "text1":"Impact,sans-serif",
                 "text2":"Impact,sans-serif"
             },
-            "backgroundSize":{
+            "backgroundSize": {
                 "phonescreen":"cover"
             }
         },

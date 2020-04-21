@@ -2,7 +2,7 @@ const puppeteer = require('puppeteer');
 const path = require('path');
 const fs = require('fs')
 
-var rootDir = process.argv[2];
+const rootDir = process.argv[2];
 if (rootDir === undefined)
 {
   console.log('Usage: node app.js directory-name');
@@ -21,7 +21,13 @@ function getFile(fileName)
 const languages = require(getFile('localized.json'));
 const content = require(getFile('content.json'));
 
-var saveDir = path.join(rootDir, 'Screenshots');
+if (typeof content !== 'object' || typeof content['content'] !== 'object')
+{
+  console.log('Content array not defined ' + (typeof content['content']));
+  process.exit();
+}
+
+const saveDir = path.join(rootDir, 'Screenshots');
 if (!fs.existsSync(saveDir))
   fs.mkdirSync(saveDir);
 
@@ -30,7 +36,7 @@ if (!fs.existsSync(saveDir))
   const page = await browser.newPage();
   
   // Resolution sets (aspect ratios)
-  for (let data of content) {
+  for (let data of content['content']) {
 
     // Resolutions
     for (let resolution of data.resolutions) {
@@ -39,7 +45,18 @@ if (!fs.existsSync(saveDir))
 
       // Screenshots
       for (let index in data.screenshots) {
-        await page.goto(`file://${getFile(data.screenshots[index].template)}`);
+
+        var screenshotData = data.screenshots[index];
+        // Load preset if set
+        if (screenshotData.preset !== undefined)
+        {
+          if (typeof content['presets'] === 'object' && typeof content['presets'][screenshotData.preset] === 'object')
+            screenshotData = Object.assign({}, screenshotData, content['presets'][screenshotData.preset]);
+          else
+            console.error(`WARNING No such preset: ${screenshotData.preset}`);
+        }
+
+        await page.goto(`file://${getFile(screenshotData.template)}`);
 
         // Languages
         for (let langCode in languages) {
@@ -67,7 +84,7 @@ if (!fs.existsSync(saveDir))
               }
             }
           
-          }, data.screenshots[index], languages[langCode], langCode);
+          }, screenshotData, languages[langCode], langCode);
 
           // Save screenshot
           var fileName = path.join(saveDir, `screenshot_${langCode}_${resolution[0]}x${resolution[1]}_${parseInt(index)+1}.png`);
